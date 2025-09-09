@@ -3,7 +3,6 @@ const navToggle = document.getElementById("nav-toggle")
 const navMenu = document.getElementById("nav-menu")
 const themeToggle = document.getElementById("theme-toggle")
 const contactForm = document.getElementById("contact-form")
-const downloadCV = document.getElementById("download-cv")
 const filterBtns = document.querySelectorAll(".filter-btn")
 const projectCards = document.querySelectorAll(".project-card")
 
@@ -107,72 +106,6 @@ filterBtns.forEach((btn) => {
       }
     })
   })
-})
-
-// Contact form handling
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault()
-
-  const formData = new FormData(contactForm)
-  const name = formData.get("name")
-  const email = formData.get("email")
-  const message = formData.get("message")
-
-  // Create mailto link
-  const subject = `Contacto desde portafolio - ${name}`
-  const body = `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`
-  const mailtoLink = `mailto:tu-email@ejemplo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-
-  // Open email client
-  window.location.href = mailtoLink
-
-  // Show success message
-  showNotification("¡Mensaje enviado! Se abrirá tu cliente de correo.", "success")
-
-  // Reset form
-  contactForm.reset()
-})
-
-// Download CV functionality
-downloadCV.addEventListener("click", (e) => {
-  e.preventDefault()
-
-  // You can replace this with actual CV download logic
-  showNotification("Funcionalidad de descarga de CV - Agrega tu archivo CV aquí", "info")
-
-  // Example: Create a simple text CV
-  const cvContent = `
-CURRICULUM VITAE
-
-Nombre: Tu Nombre
-Email: tu-email@ejemplo.com
-Teléfono: +XX XXX XXX XXX
-
-PERFIL PROFESIONAL:
-Desarrollador Full Stack especializado en backend con C# y .NET, 
-con experiencia en desarrollo de aplicaciones web y de escritorio.
-
-HABILIDADES TÉCNICAS:
-- Backend: C#, .NET, MySQL, FastAPI
-- Frontend: React, JavaScript, HTML, CSS
-- Herramientas: Docker, Git, VS Code
-
-PROYECTOS DESTACADOS:
-- Sistema de Gestión de Fútbol (C# + MySQL)
-- Gestor de Reservas Coworking (Python + FastAPI)
-- Ecommerce de Ropa (React + Node.js)
-    `
-
-  // Create and download file
-  const blob = new Blob([cvContent], { type: "text/plain" })
-  const url = window.URL.createObjectURL(blob)
-  const a = document.createElement("a")
-  a.href = url
-  a.download = "CV_Desarrollador_FullStack.txt"
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
-  window.URL.revokeObjectURL(url)
 })
 
 // Notification system
