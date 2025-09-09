@@ -289,14 +289,14 @@ section {
 }
 
 .profile-placeholder {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: url("../assets/image.jpeg") no-repeat center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 2rem 0 0;
 }
 
 .profile-placeholder i {
