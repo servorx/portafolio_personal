@@ -60,4 +60,5 @@ ahora abre el archivo `index.html` en tu navegador web favorito con la extension
 2. Abrelo directamente desde tu navegador web favorito con el siguiente enlace:
 
    ```bash
+   https://portafolioangeldavid.netlify.app/
    ```
